@@ -10,12 +10,15 @@ def printLinkedList(head):
         curr=curr.next
     print("None")
 
-def INsertAtFront(head,ele):
+def InsertAtEndOfLoop(head,ele):
     newblock=Node(ele)
     if head==None:
         return newblock
-    newblock.next=head
-    return newblock    
+    curr=head
+    while curr.next!=None:
+        curr=curr.next
+    curr.next=newblock
+    return head    
 
 
 def deleteatend(head):
@@ -29,6 +32,6 @@ def deleteatend(head):
 l=[11,22,33,44,55,66,77,88,99]
 head=None
 for ele in l:
-    head=INsertAtFront(head,ele)
+    head=INsertAtEndofLoop(head,ele)
 head=deleteatend(head)
 printLinkedList(head)  
